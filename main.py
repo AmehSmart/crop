@@ -1,7 +1,4 @@
-"""
-main.py - Entry point for the Crop Rotation Assistant application.
-Launches the PyQt6 GUI and connects UI to logic/database layers.
-"""
+
 import sys
 from PyQt6.QtWidgets import QApplication
 from main_window import MainWindow

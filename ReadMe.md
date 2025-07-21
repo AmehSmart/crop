@@ -1,3 +1,6 @@
+
+>
+> Build a full-featured **Python desktop application** using **PyQt6** that assists farmers with crop rotation decisions, soil health management, and modern farming practices.
 >
 >pls before you pls create a virtual environment using 
 > python -m venv ur virtualevironmentname then enter
