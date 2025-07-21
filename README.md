@@ -1,6 +1,4 @@
-# crop
 
-> **You are an expert software engineer.**
 >
 > Build a full-featured **Python desktop application** using **PyQt6** that assists farmers with crop rotation decisions, soil health management, and modern farming practices.
 >
