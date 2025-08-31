@@ -17,22 +17,36 @@ class DatabaseManager:
                 farmland_size REAL,
                 previous_crop TEXT,
                 current_crop TEXT,
-                soil_type TEXT
+                soil_type TEXT,
+                recommendation TEXT,
+                fertilizer TEXT,
+                techniques TEXT
             )
         ''')
         self.conn.commit()
 
-    def save_user_entry(self, farmland_size: float, previous_crop: str, current_crop: str, soil_type: str):
+    def save_user_entry(
+        self,
+        farmland_size: float,
+        previous_crop: str,
+        current_crop: str,
+        soil_type: str,
+        recommendation: str,
+        fertilizer: str,
+        techniques: str
+    ):
         cursor = self.conn.cursor()
         cursor.execute('''
-            INSERT INTO user_entries (farmland_size, previous_crop, current_crop, soil_type)
-            VALUES (?, ?, ?, ?)
-        ''', (farmland_size, previous_crop, current_crop, soil_type))
+            INSERT INTO user_entries (
+                farmland_size, previous_crop, current_crop, soil_type,
+                recommendation, fertilizer, techniques
+            ) VALUES (?, ?, ?, ?, ?, ?, ?)
+        ''', (farmland_size, previous_crop, current_crop, soil_type, recommendation, fertilizer, techniques))
         self.conn.commit()
 
     def get_user_entries(self) -> List[Tuple[Any]]:
         cursor = self.conn.cursor()
-        cursor.execute('SELECT * FROM user_entries')
+        cursor.execute('SELECT * FROM user_entries ORDER BY id DESC')
         return cursor.fetchall()
 
     def close(self):
